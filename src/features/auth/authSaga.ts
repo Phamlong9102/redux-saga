@@ -1,10 +1,11 @@
 import { authActions, LoginPayload } from './authSlice';
-import { fork, take, call, delay, put } from 'redux-saga/effects';
+import { fork, take, call, put, delay } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
+import { push } from 'redux-first-history';
 
 function* handleLogin(payload: LoginPayload) {
   try {
-    yield delay(1000);
+    yield delay(500)
     localStorage.setItem('access_token', 'fake_token');
     yield put(
       authActions.loginSuccess({
@@ -12,14 +13,15 @@ function* handleLogin(payload: LoginPayload) {
         name: 'Easy Frontend',
       })
     );
+    yield put(push('/admin'));
   } catch (error: any) {
-    yield put(authActions.loginFailed(error.message)); 
+    yield put(authActions.loginFailed(error.message));
   }
 }
 
 function* handleLogout() {
-  yield delay(500)
   localStorage.removeItem('access_token');
+  yield put(push('/login'));
 }
 
 function* watchLoginFlow() {

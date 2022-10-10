@@ -14,16 +14,15 @@ export interface AuthState {
 
 const initialState: AuthState = {
     isLoggedIn: false, 
-    logging: false,
+    logging: false, 
     currentUser: undefined, 
 }
 
 const authSlice = createSlice({
     name: 'auth', 
     initialState, 
-    
-    // Khi UI dispatch 1 action thì thằng reducer sẽ kiểm tra xem action có type là gì và trả ra hành động tương 
-    // ứng với type mà action được định nghĩa   
+    // Khi UI dispatch 1 action thì thằng reducer sẽ kiểm tra xem action có type là gì và trả ra hành động  
+    // tương ứng với type mà action được định nghĩa   
     reducers: {
         login(state, action: PayloadAction<LoginPayload>) {
             state.logging = true;
@@ -45,11 +44,9 @@ const authSlice = createSlice({
 //Actions
 export const authActions = authSlice.actions;
 
-
 // Selector 
 export const selectIsLoggedIn = (state: any) => state.auth.isLoggedIn; 
 export const selectIsLogging = (state: any) => state.auth.logging; 
-
 
 // Reducer
 const authReducer = authSlice.reducer; 

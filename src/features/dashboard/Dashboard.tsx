@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { Header, Sidebar } from 'components/common';
 
-export function AdminLayout() {
+export default function Dashboard() {
   return (
     <>
       <div className="border-b-[1px] border-black">
@@ -13,7 +13,7 @@ export function AdminLayout() {
         </div>
 
         <Box>
-          
+          sdf,jgh,
         </Box>
       </Box>
     </>
