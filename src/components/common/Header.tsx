@@ -8,7 +8,6 @@ import { authActions } from 'features/auth/authSlice';
 
 export function Header() {
   const dispatch = useAppDispatch(); 
-
   const handleLogout = () => {
     dispatch(authActions.logout())
   }

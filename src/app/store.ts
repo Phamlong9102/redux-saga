@@ -5,6 +5,7 @@ import authReducer from '../features/auth/authSlice';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import dashboardReducer from 'features/dashboard/DashboardSlice';
+import studentReducer from 'features/students/StudentSlice';
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
   createReduxHistoryContext({ history: createBrowserHistory() });
@@ -15,7 +16,8 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     router: routerReducer,
-    dashboard: dashboardReducer, 
+    dashboard: dashboardReducer,
+    student: studentReducer,  
   },
   middleware: [sagaMiddleware, routerMiddleware],
 });

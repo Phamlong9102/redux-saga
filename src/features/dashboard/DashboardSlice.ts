@@ -8,12 +8,11 @@ export interface DashboardStatistics {
     highMarkCount: number; 
     lowMarkCount: number; 
 }
-
 export interface RankingByCityList {
     cityId: string; 
+    cityName: string; 
     rankingList: Student[];
 }
-
 export interface DashboardState {
     loading: boolean; 
     statistics: DashboardStatistics;
@@ -21,7 +20,6 @@ export interface DashboardState {
     lowestStudentList: Student[];
     rankingByCityList: RankingByCityList[];
 }
-
 const initialState: DashboardState = {
     loading: false, 
     statistics: {
@@ -48,7 +46,6 @@ const dashboardSlice = createSlice({
         fetchDataFailed(state) {
             state.loading = false;
         },
-
         setStatistics(state, action: PayloadAction<DashboardStatistics>) {
             state.statistics = action.payload; 
         },
@@ -73,9 +70,6 @@ export const selectDashboardStatistics = (state: RootState) => state.dashboard.s
 export const selectHighestStudentList = (state: RootState) => state.dashboard.highestStudentList;
 export const selectLowestStudentList = (state: RootState) => state.dashboard.lowestStudentList;
 export const selectRankingByCityList = (state: RootState) => state.dashboard.rankingByCityList;
-
-
-
 
 // Reducer
 const dashboardReducer = dashboardSlice.reducer;

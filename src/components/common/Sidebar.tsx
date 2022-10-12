@@ -4,14 +4,19 @@ export function Sidebar() {
   return (
     <>
       <div>
-        <div className="w-fullbg-[#ccc] cursor-pointer bg-white hover:bg-[#ccc] border-b-1px border-black">
+        <div className="w-full cursor-pointer bg-white hover:bg-[#ccc] border-b-1px border-black">
           <Link to="/admin/dashboard" className="text-[22px] text-black">
             Dashboard
           </Link>
         </div>
         <div className="w-full bg-white cursor-pointer hover:bg-[#ccc] border-b-1px border-black">
-          <Link to="/admin/student" className="text-[22px] text-black">
-            Student Feature
+          <Link to="/admin/student/add" className="text-[22px] text-black">
+            Student Add
+          </Link>
+        </div>
+        <div className="w-full bg-white cursor-pointer hover:bg-[#ccc] border-b-1px border-black">
+          <Link to="/admin/student/:studentId" className="text-[22px] text-black">
+            Student Id
           </Link>
         </div>
       </div>

@@ -5,7 +5,7 @@
             "name": "Huyen", 
             "age": 18, 
             "mark": 8.4, 
-            "gender": "female", 
+            "gender": "girl", 
             "city": "Ha noi", 
             "createAt": "12-03-2022", 
             "updateAt": ""
@@ -14,8 +14,8 @@
             "id": "2", 
             "name": "Ha", 
             "age": 18, 
-            "mark": 6.2, 
-            "gender": "female", 
+            "mark": 5.2, 
+            "gender": "girl", 
             "city": "HCM", 
             "createAt": "12-03-2022", 
             "updateAt": ""
@@ -24,8 +24,8 @@
             "id": "3", 
             "name": "Hai", 
             "age": 48, 
-            "mark": 2.4, 
-            "gender": "male", 
+            "mark": 8.4, 
+            "gender": "boy", 
             "city": "Bac ninh", 
             "createAt": "12-03-2022", 
             "updateAt": ""
@@ -35,7 +35,7 @@
             "name": "Tu", 
             "age": 39, 
             "mark": 5.4, 
-            "gender": "male", 
+            "gender": "boy", 
             "city": "Quang ninh", 
             "createAt": "12-03-2022", 
             "updateAt": ""
@@ -44,12 +44,11 @@
             "id": "5", 
             "name": "Quynh", 
             "age": 45, 
-            "mark": 2.9, 
-            "gender": "female", 
+            "mark": 8.9, 
+            "gender": "girl", 
             "city": "Ha giang", 
             "createAt": "12-03-2022", 
             "updateAt": ""
         }
     ]
-
 }
