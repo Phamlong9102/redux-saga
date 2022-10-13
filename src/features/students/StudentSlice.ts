@@ -39,10 +39,10 @@ const studentSlice = createSlice({
         fetchStudentListFailed(state) {
             state.loading = false; 
         }, 
-        
         setFilter(state, action: PayloadAction<ListParams>) {
             state.filter = action.payload
         },
+        setFilterWithDebounce(state, action: PayloadAction<ListParams>) {},
     }
 })
 

@@ -1,10 +1,17 @@
 import { Header, Sidebar } from 'components/common';
 import { Box } from '@mui/material';
-import StudentTable from '../components/StudentTable';
-import { selectStudentList } from '../StudentSlice';
+import { useAppDispatch } from 'app/hooks';
+import { useEffect } from 'react';
+import { cityActions } from 'features/city/CitySlice';
 
 
 export default function AddEditPage() {
+  const dispatch = useAppDispatch(); 
+
+  useEffect(() => {
+    dispatch(cityActions.fetchCityList())
+  }, [dispatch])
+
   return (
     <>
       <div className="border-b-[1px] border-black">

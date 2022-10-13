@@ -6,6 +6,7 @@ import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import dashboardReducer from 'features/dashboard/DashboardSlice';
 import studentReducer from 'features/students/StudentSlice';
+import cityReducer from 'features/city/CitySlice';
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
   createReduxHistoryContext({ history: createBrowserHistory() });
@@ -18,6 +19,7 @@ export const store = configureStore({
     router: routerReducer,
     dashboard: dashboardReducer,
     student: studentReducer,  
+    city: cityReducer,
   },
   middleware: [sagaMiddleware, routerMiddleware],
 });

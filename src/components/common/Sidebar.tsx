@@ -10,13 +10,8 @@ export function Sidebar() {
           </Link>
         </div>
         <div className="w-full bg-white cursor-pointer hover:bg-[#ccc] border-b-1px border-black">
-          <Link to="/admin/student/add" className="text-[22px] text-black">
-            Student Add
-          </Link>
-        </div>
-        <div className="w-full bg-white cursor-pointer hover:bg-[#ccc] border-b-1px border-black">
           <Link to="/admin/student/:studentId" className="text-[22px] text-black">
-            Student Id
+            Students
           </Link>
         </div>
       </div>
