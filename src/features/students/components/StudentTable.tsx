@@ -36,9 +36,6 @@ export default function StudentTable({
   const [open, setOpen] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState<Student>()
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  }
   const handleClose = () => {
     setOpen(false);
   };
@@ -50,7 +47,7 @@ export default function StudentTable({
     onRemove?.(student);
     setOpen(false); 
   }
-
+  
   return (
     <>
       <TableContainer component={Paper}>

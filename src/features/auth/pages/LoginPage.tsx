@@ -1,6 +1,5 @@
 import { CircularProgress } from '@mui/material';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { push } from 'redux-first-history';
 import { authActions } from '../authSlice';
 
 export default function LoginPage() {

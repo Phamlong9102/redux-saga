@@ -10,9 +10,9 @@ export function Sidebar() {
           </Link>
         </div>
         <div className="w-full bg-white cursor-pointer hover:bg-[#ccc] border-b-1px border-black">
-          <Link to="/admin/student/:studentId" className="text-[22px] text-black">
+          <Link to="/admin/student" className="text-[22px] text-black">
             Students
-          </Link>
+          </Link> 
         </div>
       </div>
     </>

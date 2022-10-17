@@ -18,14 +18,16 @@ import Pagination from '@mui/material/Pagination';
 import StudentFilters from '../components/StudentFilters';
 import { ListParams, Student } from 'models';
 import studentApi from 'api/studentApi';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function ListPage() {
   const studentList = useAppSelector(selectStudentList);
   const pagination = useAppSelector(selectStudentPagination);
   const filter = useAppSelector(selectStudentFilter);
-  const dispatch = useAppDispatch();
   const cityMap = useAppSelector(selectCityMap);
   const cityList = useAppSelector(selectCityList);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(cityActions.fetchCityList());
@@ -50,23 +52,27 @@ export default function ListPage() {
   };
 
   const handleFilterChange = (newFilter: ListParams) => {
-    const action = studentActions.setFilter(newFilter)
-    console.log('City change action', action)
+    const action = studentActions.setFilter(newFilter);
+    console.log('City change action', action);
     dispatch(studentActions.setFilter(newFilter));
   };
 
   const handleRemoveStudent = async (student: Student) => {
-    console.log('Handle remove student', student)
+    console.log('Handle remove student', student);
     try {
       // Remove student API
-      await studentApi.remove(student?.id || '')
+      await studentApi.remove(student?.id || '');
       // Trigger to re-fetch student list with current filter
-      const newFilter = { ...filter}
-      dispatch(studentActions.setFilter(newFilter))
+      const newFilter = { ...filter };
+      dispatch(studentActions.setFilter(newFilter));
     } catch (error) {
       // Toast error
-      console.log('Falied to fetch student', error)
+      console.log('Falied to fetch student', error);
     }
+  };
+
+  const handleEditStudent = (student: Student) => {
+    navigate(`/admin/student/edit/${student.id}`)
   }
 
   return (
@@ -93,9 +99,11 @@ export default function ListPage() {
             }}
           >
             <Typography variant="h4">Students</Typography>
-            <Button variant="contained" color="primary">
-              Add new student
-            </Button>
+            <Link to="/admin/student/add">
+              <Button variant="contained" color="primary">
+                Add new student
+              </Button>
+            </Link>
           </Box>
 
           <Box mb={3}>
@@ -109,7 +117,12 @@ export default function ListPage() {
           </Box>
 
           {/* Student table */}
-          <StudentTable studentList={studentList} cityMap={cityMap} onRemove={handleRemoveStudent}/>
+          <StudentTable
+            studentList={studentList}
+            cityMap={cityMap}
+            onEdit={handleEditStudent}
+            onRemove={handleRemoveStudent}
+          />
 
           {/* Pagination */}
           <Box
